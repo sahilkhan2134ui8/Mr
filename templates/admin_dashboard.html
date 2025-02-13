@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>Admin Dashboard</title></head>
+<body>
+    <h2>Pending Approvals</h2>
+    <ul>
+        {% for user in users %}
+        <li>{{ user.username }}
+            <a href="{{ url_for('approve_user', user_id=user.id) }}">✅ Approve</a>
+            <a href="{{ url_for('reject_user', user_id=user.id) }}">❌ Reject</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
