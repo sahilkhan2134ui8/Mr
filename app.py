@@ -113,5 +113,5 @@ def reject_user(user_id):
     return redirect(url_for("admin_dashboard"))
 
 if __name__ == "__main__":
-    db.create_all()
-    socketio.run(app, debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Render ka assigned port
+    socketio.run(app, host="0.0.0.0", port=port, debug=True)
